@@ -17,7 +17,7 @@
         .hero-section {
             background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
             color: #0066cc;
-            padding: 60px 0;
+            padding: 25px 0 10px 0;
             text-align: center;
         }
         .hero-section img {
@@ -26,16 +26,22 @@
             border-radius: 50%;
             border: 5px solid white;
             object-fit: cover;
-            margin-bottom: 30px;
+            margin-bottom: 8px;
         }
         .hero-section h1 {
-            font-size: 3rem;
+            font-size: 1.7rem;
             font-weight: bold;
-            margin: 20px 0;
+            margin: 5px 0 4px 0;
         }
         .hero-section .lead {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        .hero-section p {
+            margin-bottom: 3px;
+        }
+        .hero-section .btn {
+            margin-bottom: 0;
         }
         .card {
             border: none;
@@ -70,6 +76,23 @@
         footer a:hover {
             text-decoration: underline;
         }
+        .image-zoom {
+            cursor: pointer;
+        }
+        .modal-body img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        .zoom-modal .modal-dialog {
+            max-width: 90vw;
+        }
+        .zoom-modal .modal-content {
+            background-color: rgba(0, 0, 0, 0.9);
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -102,14 +125,14 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section" style="margin-top: 70px;">
         <div class="container">
-            <img src="rpi2.jpg" alt="Profile - Fajar Sidiq" onerror="this.src='https://via.placeholder.com/200'">
+            <img src="bb.jpeg" alt="Profile - Fajar Sidiq" onerror="this.src='https://via.placeholder.com/200'">
             <h1>Fajar Sidiq</h1>
             <p class="lead">Rekayasa Perangkat Lunak (RPL)</p>
-            <p class="mb-4">SMK Muhammadiyah Majenang</p>
+            <p class="mb-2">POLITEKNIK NEGERI INDRAMAYU</p>
             <a class="btn btn-primary btn-lg" href="#projects" role="button">Lihat Proyek Saya</a>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top: 50px;">
-            <path fill="#0099ff" fill-opacity="1" d="M0,128L80,154.7C160,181,320,235,480,224C640,213,800,139,960,101.3C1120,64,1280,64,1360,64L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top: 0px; display: block;">
+            <path fill="#0099ff" fill-opacity="1" d="M0,96L80,122.7C160,149,320,203,480,192C640,181,800,107,960,69.3C1120,32,1280,32,1360,32L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
         </svg>
     </section>
 
@@ -123,7 +146,9 @@
                         <strong>Nama Lengkap:</strong> Fajar Sidiq
                     </p>
                     <p class="fs-5">
-                        <strong>Sekolah:</strong> SMK Muhammadiyah Majenang
+                        <strong>pendidikan :</strong> :
+-SMK MUHAMMADIYAH MAJENANG 
+POLITEKNIK NEGERI INDRAMAYU 
                     </p>
                     <p class="fs-5">
                         <strong>Jurusan:</strong> Rekayasa Perangkat Lunak (RPL)
@@ -149,22 +174,22 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="lufyy.jfif" class="card-img-top" alt="Project 1" onerror="this.src='https://via.placeholder.com/300x200'">
+                        <img src="sertif1.jpeg" class="card-img-top" alt="Project 1" onerror="this.src='https://via.placeholder.com/300x200'">
                         <div class="card-body">
                             <h5 class="card-title">Project 1</h5>
                             <p class="card-text">sertifikat PRC 2025</p>
-                            <a href="#" class="btn btn-primary btn-sm">Lihat Detail</a>
+                            <button class="btn btn-primary btn-sm" onclick="zoomImage('sertif1.jpeg', 'Project 1')">Lihat Detail</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="lufyy.jfif" class="card-img-top" alt="Project 2" onerror="this.src='https://via.placeholder.com/300x200'">
+                        <img src="sertif2.jpeg" class="card-img-top" alt="Project 2" onerror="this.src='https://via.placeholder.com/300x200'">
                         <div class="card-body">
                             <h5 class="card-title">Project 2</h5>
-                            <p class="card-text">Deskripsi singkat tentang proyek kedua Anda dan fitur-fitur utamanya.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Lihat Detail</a>
+                            <p class="card-text">sertifikat mechatura 2025</p>
+                            <button class="btn btn-primary btn-sm" onclick="zoomImage('sertif2.jpeg', 'Project 2')">Lihat Detail</button>
                         </div>
                     </div>
                 </div>
@@ -175,7 +200,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Project 3</h5>
                             <p class="card-text">Deskripsi singkat tentang proyek ketiga Anda dan pencapaian yang diraih.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Lihat Detail</a>
+                            <button class="btn btn-primary btn-sm" onclick="zoomImage('lufyy.jfif', 'Project 3')">Lihat Detail</button>
                         </div>
                     </div>
                 </div>
@@ -209,6 +234,21 @@
         </div>
     </section>
 
+    <!-- Image Zoom Modal -->
+    <div class="modal fade zoom-modal" id="imageZoomModal" tabindex="-1" aria-labelledby="imageZoomLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="imageZoomLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center">
+                    <img id="zoomImageSrc" src="" alt="Zoom Image" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="mt-5">
         <p class="mb-0">
@@ -220,5 +260,14 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script>
+        function zoomImage(imageSrc, imageTitle) {
+            document.getElementById('imageZoomLabel').textContent = imageTitle;
+            document.getElementById('zoomImageSrc').src = imageSrc;
+            var zoomModal = new bootstrap.Modal(document.getElementById('imageZoomModal'));
+            zoomModal.show();
+        }
+    </script>
 </body>
 </html>
