@@ -1,206 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fajar Sidiq - Portfolio</title>
+    <meta name="description" content="Portfolio Fajar Sidiq - Rekayasa Perangkat Lunak (RPL) | Politeknik Negeri Indramayu">
+    <meta name="keywords" content="Fajar Sidiq, RPL, Portfolio, Developer, Indramayu">
+    <meta name="author" content="Fajar Sidiq">
+    <title>Fajar Sidiq — Portfolio</title>
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            color: #0066cc;
-            padding: 25px 0 10px 0;
-            text-align: center;
-        }
-        .hero-section img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid white;
-            object-fit: cover;
-            margin-bottom: 8px;
-        }
-        .hero-section h1 {
-            font-size: 1.7rem;
-            font-weight: bold;
-            margin: 5px 0 4px 0;
-        }
-        .hero-section .lead {
-            font-size: 0.9rem;
-            margin-bottom: 2px;
-        }
-        .hero-section p {
-            margin-bottom: 3px;
-        }
-        .hero-section .btn {
-            margin-bottom: 0;
-        }
-        .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .section-title {
-            text-align: center;
-            margin: 50px 0 30px;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #0099ff;
-        }
-        .contact-section {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-        }
-        footer {
-            background-color: #0099ff !important;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .image-zoom {
-            cursor: pointer;
-        }
-        .modal-body img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            max-height: 80vh;
-            object-fit: contain;
-        }
-        .zoom-modal .modal-dialog {
-            max-width: 90vw;
-        }
-        .zoom-modal .modal-content {
-            background-color: rgba(0, 0, 0, 0.9);
-            border: none;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Star Canvas -->
+    <canvas id="starCanvas"></canvas>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <div class="container-fluid">
-            <a class="navbar-brand text-primary" href="#home">Fajar Sidiq</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="brand-text">Fajar<span class="brand-accent">.</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon">
+                    <span></span><span></span><span></span>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="#contact">Contact</a>
-                    </li>
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section" style="margin-top: 70px;">
-        <div class="container">
-            <img src="bb.jpeg" alt="Profile - Fajar Sidiq" onerror="this.src='https://via.placeholder.com/200'">
-            <h1>Fajar Sidiq</h1>
-            <p class="lead">Rekayasa Perangkat Lunak (RPL)</p>
-            <p class="mb-2">POLITEKNIK NEGERI INDRAMAYU</p>
-            <a class="btn btn-primary btn-lg" href="#projects" role="button">Lihat Proyek Saya</a>
+    <!-- HERO -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-avatar-wrap reveal">
+                <img src="bb.jpeg" alt="Fajar Sidiq" class="hero-avatar"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Fajar+Sidiq&size=200&background=0099ff&color=fff'">
+                <div class="avatar-ring"></div>
+            </div>
+            <div class="hero-text reveal" style="--delay:.2s">
+                <p class="hero-greeting">Halo, saya 👋</p>
+                <h1 class="hero-name">Fajar Sidiq</h1>
+                <p class="hero-role">
+                    <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+                </p>
+                <p class="hero-school"><i class="fas fa-university me-2"></i>Politeknik Negeri Indramayu</p>
+            </div>
+            <div class="hero-actions reveal" style="--delay:.4s">
+                <a href="#projects" class="btn btn-hero-primary">
+                    <i class="fas fa-eye me-2"></i>Lihat Proyek
+                </a>
+                <a href="https://wa.me/6288215519327?text=Halo%20Fajar%2C%20saya%20ingin%20menghubungi%20Anda"
+                    target="_blank" rel="noopener noreferrer" class="btn btn-hero-whatsapp">
+                    <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                </a>
+            </div>
+            <div class="hero-scroll-hint reveal" style="--delay:.6s">
+                <span>Scroll ke bawah</span>
+                <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+            </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top: 0px; display: block;">
-            <path fill="#0099ff" fill-opacity="1" d="M0,96L80,122.7C160,149,320,203,480,192C640,181,800,107,960,69.3C1120,32,1280,32,1360,32L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-        </svg>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#f8faff" d="M0,30 C300,90 700,0 1080,60 C1200,80 1350,20 1440,50 L1440,100 L0,100 Z"/>
+            </svg>
+        </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
+    <!-- ABOUT -->
+    <section id="about" class="section-block bg-light-custom">
         <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="fs-5">
-                        <strong>Nama Lengkap:</strong> Fajar Sidiq
-                    </p>
-                    <p class="fs-5">
-                        <strong>pendidikan :</strong> :
--SMK MUHAMMADIYAH MAJENANG 
-POLITEKNIK NEGERI INDRAMAYU 
-                    </p>
-                    <p class="fs-5">
-                        <strong>Jurusan:</strong> Rekayasa Perangkat Lunak (RPL)
-                    </p>
+            <div class="section-header reveal">
+                <span class="section-tag">01 — About</span>
+                <h2 class="section-title">Tentang Saya</h2>
+            </div>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 reveal">
+                    <div class="about-photo-wrap">
+                        <img src="my.jpeg" alt="Fajar Sidiq"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Fajar+Sidiq&size=400&background=0099ff&color=fff'"
+                            class="about-photo">
+                        <div class="about-badge">
+                            <i class="fas fa-code"></i>
+                            <span>RPL Student</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h5>Motivasi Saya:</h5>
-                    <p class="lead">
-                        "Syukuri apa yang ada, karena di luar sana masih banyak yang lebih kekurangan dari kita."
-                    </p>
-                    <p>
-                        Saya berkomitmen untuk terus belajar dan berkembang dalam bidang teknologi informasi, menciptakan solusi yang bermanfaat bagi masyarakat.
-                    </p>
+                <div class="col-lg-7 reveal" style="--delay:.15s">
+                    <div class="about-info-card">
+                        <h4 class="about-name">Fajar Sidiq</h4>
+                        <p class="about-desc">
+                            Mahasiswa Rekayasa Perangkat Lunak yang bersemangat dalam menciptakan solusi digital.
+                            Berkomitmen untuk terus belajar dan berkembang dalam dunia teknologi informasi.
+                        </p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <div>
+                                    <span class="detail-label">Nama Lengkap</span>
+                                    <span class="detail-val">Fajar Sidiq</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <span class="detail-label">Jurusan</span>
+                                    <span class="detail-val">Rekayasa Perangkat Lunak (RPL)</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-school"></i>
+                                <div>
+                                    <span class="detail-label">Pendidikan</span>
+                                    <span class="detail-val">SMK Muhammadiyah Majenang → Politeknik Negeri Indramayu</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span class="detail-label">Lokasi</span>
+                                    <span class="detail-val">Indramayu, Jawa Barat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <blockquote class="about-quote">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            Syukuri apa yang ada, karena di luar sana masih banyak yang lebih kekurangan dari kita.
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-light">
+    <!-- SKILLS -->
+    <section id="skills" class="section-block bg-white-custom">
         <div class="container">
-            <h2 class="section-title">Proyek Saya</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="sertif1.jpeg" class="card-img-top" alt="Project 1" onerror="this.src='https://via.placeholder.com/300x200'">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 1</h5>
-                            <p class="card-text">sertifikat PRC 2025</p>
-                            <button class="btn btn-primary btn-sm" onclick="zoomImage('sertif1.jpeg', 'Project 1')">Lihat Detail</button>
+            <div class="section-header reveal">
+                <span class="section-tag">02 — Skills</span>
+                <h2 class="section-title">Kemampuan Saya</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-lg-4 reveal">
+                    <div class="skill-card">
+                        <div class="skill-icon skill-icon-blue"><i class="fab fa-html5"></i></div>
+                        <h5>HTML & CSS</h5>
+                        <p>Tampilan web yang responsif dan menarik</p>
+                        <div class="skill-bar-wrap"><div class="skill-bar" data-pct="80"></div></div>
+                        <span class="skill-pct">80%</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.1s">
+                    <div class="skill-card">
+                        <div class="skill-icon skill-icon-yellow"><i class="fab fa-js-square"></i></div>
+                        <h5>JavaScript</h5>
+                        <p>Interaktivitas dan logika sisi klien</p>
+                        <div class="skill-bar-wrap"><div class="skill-bar" data-pct="65"></div></div>
+                        <span class="skill-pct">65%</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.2s">
+                    <div class="skill-card">
+                        <div class="skill-icon skill-icon-purple"><i class="fab fa-php"></i></div>
+                        <h5>PHP</h5>
+                        <p>Pengembangan backend dan aplikasi dinamis</p>
+                        <div class="skill-bar-wrap"><div class="skill-bar" data-pct="60"></div></div>
+                        <span class="skill-pct">60%</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.3s">
+                    <div class="skill-card">
+                        <div class="skill-icon skill-icon-orange"><i class="fas fa-database"></i></div>
+                        <h5>MySQL</h5>
+                        <p>Manajemen basis data relasional</p>
+                        <div class="skill-bar-wrap"><div class="skill-bar" data-pct="70"></div></div>
+                        <span class="skill-pct">70%</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.4s">
+                    <div class="skill-card">
+                        <div class="skill-icon skill-icon-green"><i class="fab fa-git-alt"></i></div>
+                        <h5>Git & GitHub</h5>
+                        <p>Version control dan kolaborasi proyek</p>
+                        <div class="skill-bar-wrap"><div class="skill-bar" data-pct="65"></div></div>
+                        <span class="skill-pct">65%</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.5s">
+                    <div class="skill-card">
+                        <div class="skill-icon skill-icon-red"><i class="fab fa-bootstrap"></i></div>
+                        <h5>Bootstrap</h5>
+                        <p>Framework CSS untuk desain cepat</p>
+                        <div class="skill-bar-wrap"><div class="skill-bar" data-pct="75"></div></div>
+                        <span class="skill-pct">75%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-block bg-light-custom">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">03 — Projects</span>
+                <h2 class="section-title">Proyek & Pencapaian</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="project-card">
+                        <div class="project-img-wrap">
+                            <img src="sertif1.jpeg" alt="Sertifikat PRC 2025"
+                                onerror="this.src='https://via.placeholder.com/400x250/0099ff/fff?text=PRC+2025'">
+                            <div class="project-overlay">
+                                <button class="btn-overlay" onclick="zoomImage('sertif1.jpeg', 'Sertifikat PRC 2025')">
+                                    <i class="fas fa-expand"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <span class="project-tag">Sertifikasi</span>
+                            <h5 class="project-title">Sertifikat PRC 2025</h5>
+                            <p class="project-desc">Pencapaian sertifikasi dalam bidang pemrograman dan rekayasa perangkat lunak.</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="sertif2.jpeg" class="card-img-top" alt="Project 2" onerror="this.src='https://via.placeholder.com/300x200'">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 2</h5>
-                            <p class="card-text">sertifikat mechatura 2025</p>
-                            <button class="btn btn-primary btn-sm" onclick="zoomImage('sertif2.jpeg', 'Project 2')">Lihat Detail</button>
+                <div class="col-md-6 col-lg-4 reveal" style="--delay:.1s">
+                    <div class="project-card">
+                        <div class="project-img-wrap">
+                            <img src="sertif2.jpeg" alt="Sertifikat Mechatura 2025"
+                                onerror="this.src='https://via.placeholder.com/400x250/25d366/fff?text=Mechatura+2025'">
+                            <div class="project-overlay">
+                                <button class="btn-overlay" onclick="zoomImage('sertif2.jpeg', 'Sertifikat Mechatura 2025')">
+                                    <i class="fas fa-expand"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <span class="project-tag">Kompetisi</span>
+                            <h5 class="project-title">Sertifikat Mechatura 2025</h5>
+                            <p class="project-desc">Sertifikat penghargaan dari kompetisi dan pelatihan program Mechatura 2025.</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="lufyy.jfif" class="card-img-top" alt="Project 3" onerror="this.src='https://via.placeholder.com/300x200'">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 3</h5>
-                            <p class="card-text">Deskripsi singkat tentang proyek ketiga Anda dan pencapaian yang diraih.</p>
-                            <button class="btn btn-primary btn-sm" onclick="zoomImage('lufyy.jfif', 'Project 3')">Lihat Detail</button>
+                <div class="col-md-6 col-lg-4 reveal" style="--delay:.2s">
+                    <div class="project-card project-card-add">
+                        <div class="project-add-inner">
+                            <div class="project-add-icon"><i class="fas fa-plus"></i></div>
+                            <h5>Proyek Selanjutnya</h5>
+                            <p>Segera hadir! Saya sedang mengerjakan proyek-proyek baru.</p>
                         </div>
                     </div>
                 </div>
@@ -208,66 +271,128 @@ POLITEKNIK NEGERI INDRAMAYU
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- CONTACT -->
+    <section id="contact" class="section-block bg-dark-custom">
         <div class="container">
-            <h2 class="section-title">Hubungi Saya</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required>
+            <div class="section-header reveal">
+                <span class="section-tag light">04 — Contact</span>
+                <h2 class="section-title light">Hubungi Saya</h2>
+            </div>
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-5 reveal">
+                    <div class="contact-info">
+                        <h4>Mari Terhubung!</h4>
+                        <p>Tertarik bekerja sama atau sekadar berdiskusi? Jangan ragu untuk menghubungi saya.</p>
+                        <div class="contact-links">
+                            <a href="https://wa.me/6288215519327" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                                <div class="cli-icon cli-green"><i class="fab fa-whatsapp"></i></div>
+                                <div>
+                                    <span class="cli-label">WhatsApp</span>
+                                    <span class="cli-val">+62 882-1551-9327</span>
+                                </div>
+                            </a>
+                            <a href="mailto:teknoboy321@gmail.com" class="contact-link-item">
+                                <div class="cli-icon cli-blue"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <span class="cli-label">Email</span>
+                                    <span class="cli-val">teknoboy321@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="https://www.instagram.com/fajarrsdqq_/" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                                <div class="cli-icon cli-pink"><i class="fab fa-instagram"></i></div>
+                                <div>
+                                    <span class="cli-label">Instagram</span>
+                                    <span class="cli-val">@fajarrsdqq_</span>
+                                </div>
+                            </a>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                </div>
+                <div class="col-lg-7 reveal" style="--delay:.15s">
+                    <form id="contactForm" action="https://formsubmit.co/teknoboy321@gmail.com" method="POST" novalidate class="contact-form">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://portofoliofajar.io/">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="form-floating-custom">
+                                    <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+                                    <label for="name"><i class="fas fa-user me-2"></i>Nama Lengkap</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating-custom">
+                                    <input type="email" id="email" name="email" placeholder="Email" required>
+                                    <label for="email"><i class="fas fa-envelope me-2"></i>Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <textarea id="pesan" name="message" placeholder="Pesan" required rows="5"></textarea>
+                                    <label for="pesan"><i class="fas fa-comment me-2"></i>Pesan</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-submit w-100" id="submitBtn">
+                                    <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
+                                </button>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="pesan" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="pesan" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-brand">Fajar<span>.</span></p>
+                <p class="footer-copy">© 2026 Fajar Sidiq. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/fajarrsdqq_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6288215519327" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:teknoboy321@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/6288215519327?text=Halo%20Fajar%2C%20saya%20ingin%20menghubungi%20Anda"
+        target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Hubungi via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Toast -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index:1100">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto"><i class="fas fa-check me-1"></i> Berhasil!</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">Pesan Anda telah berhasil dikirim! Terima kasih 🎉</div>
+        </div>
+    </div>
+
     <!-- Image Zoom Modal -->
-    <div class="modal fade zoom-modal" id="imageZoomModal" tabindex="-1" aria-labelledby="imageZoomLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+    <div class="modal fade" id="imageZoomModal" tabindex="-1" aria-labelledby="imageZoomLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content zoom-modal-content">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title" id="imageZoomLabel"></h5>
+                    <h5 class="modal-title text-white" id="imageZoomLabel"></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body d-flex justify-content-center">
-                    <img id="zoomImageSrc" src="" alt="Zoom Image" style="max-width: 100%; height: auto;">
+                <div class="modal-body d-flex justify-content-center p-3">
+                    <img id="zoomImageSrc" src="" alt="Detail Gambar" class="zoom-modal-img">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-5">
-        <p class="mb-0">
-            Created with ❤️ by 
-            <a href="https://www.instagram.com/fajarrsdqq_/?igsh=cjlqazQ1NHNmNm5q" target="_blank">Fajar Sidiq</a>
-        </p>
-        <p class="mb-0">© 2026 Fajar Sidiq. All rights reserved.</p>
-    </footer>
-
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
-    <script>
-        function zoomImage(imageSrc, imageTitle) {
-            document.getElementById('imageZoomLabel').textContent = imageTitle;
-            document.getElementById('zoomImageSrc').src = imageSrc;
-            var zoomModal = new bootstrap.Modal(document.getElementById('imageZoomModal'));
-            zoomModal.show();
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
