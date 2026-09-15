@@ -3,16 +3,162 @@
    =================================== */
 
 /* ===================================
-   TYPED TEXT ANIMATION
+   DYNAMIC DATA LOADER
    =================================== */
 
-const typedRoles = [
+let typedRoles = [
     'Web Developer 🚀',
     'RPL Student 🎓',
-    'UI Designer ✨',
-    'Problem Solver 💡',
-    'Code Enthusiast 💻',
+    'Tech Enthusiast ✨',
 ];
+
+async function loadPortfolioData() {
+    try {
+        const res = await fetch('data.json?t=' + Date.now());
+        if (!res.ok) return;
+        const data = await res.json();
+
+        // Update typed roles
+        if (data.about && data.about.roles && data.about.roles.length) {
+            typedRoles = data.about.roles;
+        }
+
+        // Render sections
+        renderSkills(data.skills || []);
+        renderProjects(data.projects || []);
+        renderContact(data.contact || {});
+
+    } catch (e) {
+        // silently fail — static HTML content remains as fallback
+        console.warn('data.json not loaded, using static content.');
+    }
+}
+
+function renderSkills(skills) {
+    const grid = document.getElementById('skillsGrid');
+    if (!grid || !skills.length) return;
+    grid.innerHTML = '';
+    skills.forEach((skill, i) => {
+        const delay = (i * 0.1).toFixed(1);
+        const col = document.createElement('div');
+        col.className = 'col-sm-6 col-lg-4 reveal';
+        if (i > 0) col.style.setProperty('--delay', delay + 's');
+        col.innerHTML = `
+            <div class="skill-card">
+                <div class="skill-icon ${skill.colorClass}"><i class="${skill.icon}"></i></div>
+                <h5>${skill.name}</h5>
+                <p>${skill.description}</p>
+                <div class="skill-bar-wrap">
+                    <div class="skill-bar" data-pct="${skill.percentage}"></div>
+                </div>
+                <span class="skill-pct">${skill.percentage}%</span>
+            </div>`;
+        grid.appendChild(col);
+    });
+    // Re-observe new elements
+    initScrollReveal();
+}
+
+function renderProjects(projects) {
+    const grid = document.getElementById('projectsGrid');
+    if (!grid || !projects.length) return;
+    grid.innerHTML = '';
+    projects.forEach((proj, i) => {
+        const delay = (i * 0.1).toFixed(1);
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4 reveal';
+        if (i > 0) col.style.setProperty('--delay', delay + 's');
+        const fallback = `https://via.placeholder.com/400x250/${proj.placeholderColor || '6387ff'}/fff?text=${encodeURIComponent(proj.placeholderText || proj.title)}`;
+        col.innerHTML = `
+            <div class="project-card">
+                <div class="project-img-wrap">
+                    <img src="${proj.image}" alt="${proj.title}" onerror="this.src='${fallback}'">
+                    <div class="project-overlay">
+                        <button class="btn-overlay" onclick="zoomImage('${proj.image}', '${proj.title.replace(/'/g, "\\'")}')">
+                            <i class="fas fa-expand"></i> Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <span class="project-tag">${proj.tag}</span>
+                    <h5 class="project-title">${proj.title}</h5>
+                    <p class="project-desc">${proj.description}</p>
+                </div>
+            </div>`;
+        grid.appendChild(col);
+    });
+    // Always add "coming soon" card at end
+    const addCol = document.createElement('div');
+    addCol.className = 'col-md-6 col-lg-4 reveal';
+    addCol.style.setProperty('--delay', (projects.length * 0.1).toFixed(1) + 's');
+    addCol.innerHTML = `
+        <div class="project-card project-card-add">
+            <div class="project-add-inner">
+                <div class="project-add-icon"><i class="fas fa-plus"></i></div>
+                <h5>Proyek Selanjutnya</h5>
+                <p>Segera hadir! Saya sedang mengerjakan proyek-proyek baru.</p>
+            </div>
+        </div>`;
+    grid.appendChild(addCol);
+    initScrollReveal();
+}
+
+function renderContact(contact) {
+    // WhatsApp links
+    const waNumber = contact.whatsapp || '6288215519327';
+    const waMsg = encodeURIComponent('Halo Fajar, saya ingin menghubungi Anda');
+    const waUrl = `https://wa.me/${waNumber}`;
+    const waUrlMsg = `https://wa.me/${waNumber}?text=${waMsg}`;
+
+    // Update WA link items
+    document.querySelectorAll('[data-contact="wa"]').forEach(el => {
+        el.href = waUrl;
+        const val = el.querySelector('.cli-val');
+        if (val) val.textContent = '+' + waNumber.replace(/(\d{2})(\d{3})(\d{4})(\d{4})/, '$1 $2-$3-$4');
+    });
+
+    // Email
+    const email = contact.email || '';
+    document.querySelectorAll('[data-contact="email"]').forEach(el => {
+        el.href = `mailto:${email}`;
+        const val = el.querySelector('.cli-val');
+        if (val) val.textContent = email;
+    });
+    // Update form action
+    const form = document.getElementById('contactForm');
+    if (form && email) form.action = `https://formsubmit.co/${email}`;
+
+    // Instagram
+    const ig = contact.instagram || '';
+    document.querySelectorAll('[data-contact="ig"]').forEach(el => {
+        el.href = `https://www.instagram.com/${ig}/`;
+        const val = el.querySelector('.cli-val');
+        if (val) val.textContent = '@' + ig;
+    });
+
+    // Floating WA button
+    const floatWa = document.querySelector('.whatsapp-float');
+    if (floatWa) floatWa.href = waUrlMsg;
+
+    // Hero WA button
+    const heroWa = document.querySelector('[data-contact="wa-hero"]');
+    if (heroWa) heroWa.href = waUrlMsg;
+
+    // Footer socials
+    document.querySelectorAll('[data-contact="footer-ig"]').forEach(el => {
+        el.href = `https://www.instagram.com/${ig}/`;
+    });
+    document.querySelectorAll('[data-contact="footer-wa"]').forEach(el => {
+        el.href = waUrl;
+    });
+    document.querySelectorAll('[data-contact="footer-email"]').forEach(el => {
+        el.href = `mailto:${email}`;
+    });
+}
+
+/* ===================================
+   TYPED TEXT ANIMATION
+   =================================================== */
 
 let roleIndex = 0;
 let charIndex = 0;
@@ -351,6 +497,12 @@ document.head.appendChild(shakeStyle);
    =================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Load dynamic data first, then init
+    loadPortfolioData().then(() => {
+        initScrollReveal();
+        animateSkillBars();
+    });
+
     initFallingStars();
     initScrollReveal();
     initNavbar();

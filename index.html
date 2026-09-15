@@ -161,74 +161,8 @@
                 <span class="section-tag">02 — Skills</span>
                 <h2 class="section-title">Kemampuan Saya</h2>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-sm-6 col-lg-4 reveal">
-                    <div class="skill-card">
-                        <div class="skill-icon skill-icon-blue"><i class="fab fa-html5"></i></div>
-                        <h5>HTML & CSS</h5>
-                        <p>Tampilan web yang responsif dan menarik</p>
-                        <div class="skill-bar-wrap">
-                            <div class="skill-bar" data-pct="80"></div>
-                        </div>
-                        <span class="skill-pct">80%</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.1s">
-                    <div class="skill-card">
-                        <div class="skill-icon skill-icon-yellow"><i class="fab fa-js-square"></i></div>
-                        <h5>JavaScript</h5>
-                        <p>Interaktivitas dan logika sisi klien</p>
-                        <div class="skill-bar-wrap">
-                            <div class="skill-bar" data-pct="65"></div>
-                        </div>
-                        <span class="skill-pct">65%</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.2s">
-                    <div class="skill-card">
-                        <div class="skill-icon skill-icon-purple"><i class="fab fa-php"></i></div>
-                        <h5>PHP</h5>
-                        <p>Pengembangan backend dan aplikasi dinamis</p>
-                        <div class="skill-bar-wrap">
-                            <div class="skill-bar" data-pct="60"></div>
-                        </div>
-                        <span class="skill-pct">60%</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.3s">
-                    <div class="skill-card">
-                        <div class="skill-icon skill-icon-orange"><i class="fas fa-database"></i></div>
-                        <h5>MySQL</h5>
-                        <p>Manajemen basis data relasional</p>
-                        <div class="skill-bar-wrap">
-                            <div class="skill-bar" data-pct="70"></div>
-                        </div>
-                        <span class="skill-pct">70%</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.4s">
-                    <div class="skill-card">
-                        <div class="skill-icon skill-icon-green"><i class="fab fa-git-alt"></i></div>
-                        <h5>Git & GitHub</h5>
-                        <p>Version control dan kolaborasi proyek</p>
-                        <div class="skill-bar-wrap">
-                            <div class="skill-bar" data-pct="65"></div>
-                        </div>
-                        <span class="skill-pct">65%</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 reveal" style="--delay:.5s">
-                    <div class="skill-card">
-                        <div class="skill-icon skill-icon-red"><i class="fab fa-bootstrap"></i></div>
-                        <h5>Bootstrap</h5>
-                        <p>Framework CSS untuk desain cepat</p>
-                        <div class="skill-bar-wrap">
-                            <div class="skill-bar" data-pct="75"></div>
-                        </div>
-                        <span class="skill-pct">75%</span>
-                    </div>
-                </div>
-            </div>
+            <!-- Skills rendered dynamically from data.json -->
+            <div class="row g-4 justify-content-center" id="skillsGrid"></div>
         </div>
     </section>
 
@@ -239,56 +173,8 @@
                 <span class="section-tag">03 — Projects</span>
                 <h2 class="section-title">Proyek & Pencapaian</h2>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="project-card">
-                        <div class="project-img-wrap">
-                            <img src="sertif1.jpeg" alt="Sertifikat PRC 2025"
-                                onerror="this.src='https://via.placeholder.com/400x250/0099ff/fff?text=PRC+2025'">
-                            <div class="project-overlay">
-                                <button class="btn-overlay" onclick="zoomImage('sertif1.jpeg', 'Sertifikat PRC 2025')">
-                                    <i class="fas fa-expand"></i> Lihat Detail
-                                </button>
-                            </div>
-                        </div>
-                        <div class="project-body">
-                            <span class="project-tag">Sertifikasi</span>
-                            <h5 class="project-title">Sertifikat PRC 2025</h5>
-                            <p class="project-desc">Pencapaian sertifikasi dalam bidang pemrograman dan rekayasa
-                                perangkat lunak.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal" style="--delay:.1s">
-                    <div class="project-card">
-                        <div class="project-img-wrap">
-                            <img src="sertif2.jpeg" alt="Sertifikat Mechatura 2025"
-                                onerror="this.src='https://via.placeholder.com/400x250/25d366/fff?text=Mechatura+2025'">
-                            <div class="project-overlay">
-                                <button class="btn-overlay"
-                                    onclick="zoomImage('sertif2.jpeg', 'Sertifikat Mechatura 2025')">
-                                    <i class="fas fa-expand"></i> Lihat Detail
-                                </button>
-                            </div>
-                        </div>
-                        <div class="project-body">
-                            <span class="project-tag">Kompetisi</span>
-                            <h5 class="project-title">Sertifikat Mechatura 2025</h5>
-                            <p class="project-desc">Sertifikat penghargaan dari kompetisi dan pelatihan program
-                                Mechatura 2025.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal" style="--delay:.2s">
-                    <div class="project-card project-card-add">
-                        <div class="project-add-inner">
-                            <div class="project-add-icon"><i class="fas fa-plus"></i></div>
-                            <h5>Proyek Selanjutnya</h5>
-                            <p>Segera hadir! Saya sedang mengerjakan proyek-proyek baru.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Projects rendered dynamically from data.json -->
+            <div class="row g-4" id="projectsGrid"></div>
         </div>
     </section>
 
@@ -306,14 +192,14 @@
                         <p>Tertarik bekerja sama atau sekadar berdiskusi? Jangan ragu untuk menghubungi saya.</p>
                         <div class="contact-links">
                             <a href="https://wa.me/6288215519327" target="_blank" rel="noopener noreferrer"
-                                class="contact-link-item">
+                                class="contact-link-item" data-contact="wa">
                                 <div class="cli-icon cli-green"><i class="fab fa-whatsapp"></i></div>
                                 <div>
                                     <span class="cli-label">WhatsApp</span>
                                     <span class="cli-val">+62 882-1551-9327</span>
                                 </div>
                             </a>
-                            <a href="mailto:teknoboy321@gmail.com" class="contact-link-item">
+                            <a href="mailto:teknoboy321@gmail.com" class="contact-link-item" data-contact="email">
                                 <div class="cli-icon cli-blue"><i class="fas fa-envelope"></i></div>
                                 <div>
                                     <span class="cli-label">Email</span>
@@ -321,7 +207,7 @@
                                 </div>
                             </a>
                             <a href="https://www.instagram.com/fajarrsdqq_/" target="_blank" rel="noopener noreferrer"
-                                class="contact-link-item">
+                                class="contact-link-item" data-contact="ig">
                                 <div class="cli-icon cli-pink"><i class="fab fa-instagram"></i></div>
                                 <div>
                                     <span class="cli-label">Instagram</span>
@@ -335,7 +221,7 @@
                     <form id="contactForm" action="https://formsubmit.co/teknoboy321@gmail.com" method="POST" novalidate
                         class="contact-form">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://fajarbiasaaja.github.io/portofoliofajar.io/">
+                        <input type="hidden" name="_next" value="https://fajarbiasaaja.github.io/portofoliofajar.io">
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="form-floating-custom">
@@ -376,10 +262,10 @@
                 <p class="footer-copy">© 2026 Fajar Sidiq. All rights reserved.</p>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/fajarrsdqq_/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        aria-label="Instagram" data-contact="footer-ig"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/6288215519327" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:teknoboy321@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        aria-label="WhatsApp" data-contact="footer-wa"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:teknoboy321@gmail.com" aria-label="Email" data-contact="footer-email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
@@ -387,7 +273,7 @@
 
     <!-- WhatsApp Floating -->
     <a href="https://wa.me/6288215519327?text=Halo%20Fajar%2C%20saya%20ingin%20menghubungi%20Anda" target="_blank"
-        rel="noopener noreferrer" class="whatsapp-float" title="Hubungi via WhatsApp">
+        rel="noopener noreferrer" class="whatsapp-float" title="Hubungi via WhatsApp" data-contact="wa-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 

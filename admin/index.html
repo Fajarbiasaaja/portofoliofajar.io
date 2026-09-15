@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel — Fajar Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- ===== LOGIN SCREEN ===== -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <h1 class="login-title">Admin Panel</h1>
+            <p class="login-subtitle">Masukkan password untuk melanjutkan</p>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+                    <button type="button" id="togglePwd" class="toggle-pwd">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div id="loginError" class="login-error hidden">
+                    <i class="fas fa-circle-exclamation"></i> Password salah!
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-right-to-bracket"></i> Masuk
+                </button>
+            </form>
+        </div>
+        <div class="login-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="dashboard" class="dashboard hidden">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>Admin Panel</span>
+                </div>
+                <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="about">
+                    <i class="fas fa-user"></i><span>About</span>
+                </a>
+                <a href="#" class="nav-item" data-section="skills">
+                    <i class="fas fa-code"></i><span>Skills</span>
+                </a>
+                <a href="#" class="nav-item" data-section="projects">
+                    <i class="fas fa-folder-open"></i><span>Projects</span>
+                </a>
+                <a href="#" class="nav-item" data-section="contact">
+                    <i class="fas fa-address-book"></i><span>Contact</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <i class="fas fa-gear"></i><span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../" target="_blank" class="btn-view-site">
+                    <i class="fas fa-external-link-alt"></i> Lihat Website
+                </a>
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-right-from-bracket"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="topbar-title" id="topbarTitle">About</div>
+                <div class="topbar-actions">
+                    <button class="btn-save" id="globalSaveBtn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Simpan & Publish</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Toast notification -->
+            <div id="toast" class="toast hidden">
+                <i class="fas fa-check-circle"></i>
+                <span id="toastMsg">Berhasil disimpan!</span>
+            </div>
+
+            <!-- ===== SECTION: ABOUT ===== -->
+            <section class="content-section active" id="section-about">
+                <div class="section-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-id-card"></i> Informasi Utama
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" id="aboutName" placeholder="Nama lengkap">
+                                </div>
+                                <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <input type="text" id="aboutLocation" placeholder="Kota, Provinsi">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pendidikan</label>
+                                <input type="text" id="aboutEducation" placeholder="Asal sekolah → Kampus saat ini">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Kampus (di hero)</label>
+                                <input type="text" id="aboutSchool" placeholder="Nama kampus">
+                            </div>
+                            <div class="form-group">
+                                <label>Deskripsi Singkat</label>
+                                <textarea id="aboutDesc" rows="3" placeholder="Ceritakan tentang dirimu..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Kutipan / Quote</label>
+                                <textarea id="aboutQuote" rows="2" placeholder="Kutipan favoritmu..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-magic"></i> Teks Animasi (Typing)
+                        </div>
+                        <div class="card-body">
+                            <p class="card-desc">Teks yang muncul satu per satu di hero section. Tambah atau hapus sesuai keinginan.</p>
+                            <div id="rolesContainer"></div>
+                            <button class="btn-add-item" id="addRoleBtn">
+                                <i class="fas fa-plus"></i> Tambah Teks
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SECTION: SKILLS ===== -->
+            <section class="content-section" id="section-skills">
+                <div class="section-actions">
+                    <button class="btn-add" id="addSkillBtn">
+                        <i class="fas fa-plus"></i> Tambah Skill
+                    </button>
+                </div>
+                <div class="cards-grid" id="skillsGrid"></div>
+            </section>
+
+            <!-- ===== SECTION: PROJECTS ===== -->
+            <section class="content-section" id="section-projects">
+                <div class="section-actions">
+                    <button class="btn-add" id="addProjectBtn">
+                        <i class="fas fa-plus"></i> Tambah Proyek
+                    </button>
+                </div>
+                <div class="cards-grid" id="projectsGrid"></div>
+            </section>
+
+            <!-- ===== SECTION: CONTACT ===== -->
+            <section class="content-section" id="section-contact">
+                <div class="card" style="max-width:600px">
+                    <div class="card-header"><i class="fas fa-address-book"></i> Info Kontak</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label><i class="fab fa-whatsapp"></i> Nomor WhatsApp</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">+</span>
+                                <input type="text" id="contactWA" placeholder="6288215519327 (tanpa +)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="contactEmail" placeholder="email@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-instagram"></i> Username Instagram</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">@</span>
+                                <input type="text" id="contactIG" placeholder="username_instagram">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SECTION: SETTINGS ===== -->
+            <section class="content-section" id="section-settings">
+                <div class="section-grid">
+                    <div class="card">
+                        <div class="card-header"><i class="fas fa-key"></i> Ganti Password Admin</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Password Saat Ini</label>
+                                <input type="password" id="currentPwd" placeholder="Password lama">
+                            </div>
+                            <div class="form-group">
+                                <label>Password Baru</label>
+                                <input type="password" id="newPwd" placeholder="Password baru">
+                            </div>
+                            <div class="form-group">
+                                <label>Konfirmasi Password Baru</label>
+                                <input type="password" id="confirmPwd" placeholder="Ulangi password baru">
+                            </div>
+                            <button class="btn-primary" id="changePwdBtn">
+                                <i class="fas fa-save"></i> Ganti Password
+                            </button>
+                            <div id="pwdMsg" class="msg hidden"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><i class="fab fa-github"></i> GitHub Token (untuk Simpan & Publish)</div>
+                        <div class="card-body">
+                            <p class="card-desc">
+                                Token ini digunakan agar admin panel bisa menyimpan perubahan langsung ke GitHub.
+                                Token <strong>tidak disimpan permanen</strong> — hanya aktif selama sesi browser ini.
+                            </p>
+                            <div class="token-steps">
+                                <p>📋 <strong>Cara dapatkan token:</strong></p>
+                                <ol>
+                                    <li>Buka <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a></li>
+                                    <li>Beri nama token, misal: <code>portfolio-admin</code></li>
+                                    <li>Centang <strong>repo</strong> (full control)</li>
+                                    <li>Scroll bawah → klik <strong>Generate token</strong></li>
+                                    <li>Copy token dan paste di bawah ini</li>
+                                </ol>
+                            </div>
+                            <div class="form-group">
+                                <label>GitHub Personal Access Token</label>
+                                <div class="input-group">
+                                    <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                                    <button type="button" class="toggle-pwd" id="toggleToken">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="btn-primary" id="saveTokenBtn">
+                                <i class="fas fa-plug"></i> Simpan Token
+                            </button>
+                            <div id="tokenStatus" class="token-status hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ===== MODAL: Skill ===== -->
+    <div class="modal-overlay hidden" id="skillModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="skillModalTitle">Tambah Skill</h3>
+                <button class="modal-close" data-modal="skillModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nama Skill</label>
+                        <input type="text" id="skillName" placeholder="Contoh: React.js">
+                    </div>
+                    <div class="form-group">
+                        <label>Persentase (%)</label>
+                        <input type="number" id="skillPct" min="0" max="100" placeholder="0-100">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Icon (Font Awesome class)</label>
+                        <input type="text" id="skillIcon" placeholder="fab fa-react">
+                        <small>Cek icon di <a href="https://fontawesome.com/icons" target="_blank">fontawesome.com</a></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Warna</label>
+                        <select id="skillColor">
+                            <option value="skill-icon-blue">Biru</option>
+                            <option value="skill-icon-yellow">Kuning</option>
+                            <option value="skill-icon-purple">Ungu</option>
+                            <option value="skill-icon-orange">Orange</option>
+                            <option value="skill-icon-green">Hijau</option>
+                            <option value="skill-icon-red">Merah</option>
+                            <option value="skill-icon-pink">Pink</option>
+                            <option value="skill-icon-cyan">Cyan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi Singkat</label>
+                    <input type="text" id="skillDesc" placeholder="Deskripsi skill ini...">
+                </div>
+                <input type="hidden" id="skillEditId">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" data-modal="skillModal">Batal</button>
+                <button class="btn-primary" id="saveSkillBtn"><i class="fas fa-save"></i> Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: Project ===== -->
+    <div class="modal-overlay hidden" id="projectModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="projectModalTitle">Tambah Proyek</h3>
+                <button class="modal-close" data-modal="projectModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Judul Proyek</label>
+                        <input type="text" id="projectTitle" placeholder="Nama proyek / sertifikat">
+                    </div>
+                    <div class="form-group">
+                        <label>Tag / Kategori</label>
+                        <input type="text" id="projectTag" placeholder="Contoh: Sertifikasi, Kompetisi, Web App">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nama File Gambar</label>
+                    <input type="text" id="projectImage" placeholder="sertif1.jpeg (file harus sudah di-upload ke repo)">
+                    <small>Upload gambar ke repo GitHub terlebih dahulu, lalu masukkan nama filenya di sini.</small>
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi</label>
+                    <textarea id="projectDesc" rows="3" placeholder="Deskripsi singkat proyek ini..."></textarea>
+                </div>
+                <input type="hidden" id="projectEditId">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" data-modal="projectModal">Batal</button>
+                <button class="btn-primary" id="saveProjectBtn"><i class="fas fa-save"></i> Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: Confirm Delete ===== -->
+    <div class="modal-overlay hidden" id="deleteModal">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3>Konfirmasi Hapus</h3>
+                <button class="modal-close" data-modal="deleteModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Yakin ingin menghapus <strong id="deleteItemName"></strong>?</p>
+                <p class="text-muted">Aksi ini tidak bisa dibatalkan.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" data-modal="deleteModal">Batal</button>
+                <button class="btn-danger" id="confirmDeleteBtn"><i class="fas fa-trash"></i> Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+{
+  "about": {
+    "name": "Fajar Sidiq",
+    "roles": ["RPL Student", "Web Developer", "Tech Enthusiast"],
+    "school": "Politeknik Negeri Indramayu",
+    "description": "Mahasiswa Rekayasa Perangkat Lunak yang bersemangat dalam menciptakan solusi digital. Berkomitmen untuk terus belajar dan berkembang dalam dunia teknologi informasi.",
+    "education": "SMK Muhammadiyah Majenang → Politeknik Negeri Indramayu",
+    "location": "Indramayu, Jawa Barat",
+    "quote": "Syukuri apa yang ada, karena di luar sana masih banyak yang lebih kekurangan dari kita.",
+    "heroImage": "bb.jpeg",
+    "aboutImage": "my.jpeg"
+  },
+  "skills": [
+    {
+      "id": "s1",
+      "name": "HTML & CSS",
+      "icon": "fab fa-html5",
+      "colorClass": "skill-icon-blue",
+      "description": "Tampilan web yang responsif dan menarik",
+      "percentage": 80
+    },
+    {
+      "id": "s2",
+      "name": "JavaScript",
+      "icon": "fab fa-js-square",
+      "colorClass": "skill-icon-yellow",
+      "description": "Interaktivitas dan logika sisi klien",
+      "percentage": 65
+    },
+    {
+      "id": "s3",
+      "name": "PHP",
+      "icon": "fab fa-php",
+      "colorClass": "skill-icon-purple",
+      "description": "Pengembangan backend dan aplikasi dinamis",
+      "percentage": 60
+    },
+    {
+      "id": "s4",
+      "name": "MySQL",
+      "icon": "fas fa-database",
+      "colorClass": "skill-icon-orange",
+      "description": "Manajemen basis data relasional",
+      "percentage": 70
+    },
+    {
+      "id": "s5",
+      "name": "Git & GitHub",
+      "icon": "fab fa-git-alt",
+      "colorClass": "skill-icon-green",
+      "description": "Version control dan kolaborasi proyek",
+      "percentage": 65
+    },
+    {
+      "id": "s6",
+      "name": "Bootstrap",
+      "icon": "fab fa-bootstrap",
+      "colorClass": "skill-icon-red",
+      "description": "Framework CSS untuk desain cepat",
+      "percentage": 75
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "title": "Sertifikat PRC 2025",
+      "tag": "Sertifikasi",
+      "image": "sertif1.jpeg",
+      "description": "Pencapaian sertifikasi dalam bidang pemrograman dan rekayasa perangkat lunak.",
+      "placeholderText": "PRC+2025",
+      "placeholderColor": "0099ff"
+    },
+    {
+      "id": "p2",
+      "title": "Sertifikat Mechatura 2025",
+      "tag": "Kompetisi",
+      "image": "sertif2.jpeg",
+      "description": "Sertifikat penghargaan dari kompetisi dan pelatihan program Mechatura 2025.",
+      "placeholderText": "Mechatura+2025",
+      "placeholderColor": "25d366"
+    }
+  ],
+  "contact": {
+    "whatsapp": "6288215519327",
+    "email": "teknoboy321@gmail.com",
+    "instagram": "fajarrsdqq_"
+  },
+  "meta": {
+    "githubUsername": "Fajarbiasaaja",
+    "githubRepo": "portofoliofajar.io",
+    "githubBranch": "main",
+    "siteUrl": "https://fajarbiasaaja.github.io/portofoliofajar.io"
+  }
+}
