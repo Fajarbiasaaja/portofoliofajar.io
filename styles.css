@@ -632,7 +632,7 @@ body {
 .skill-icon-purple{ background: rgba(128, 0, 255, 0.10); color: #8844ee; }
 .skill-icon-orange{ background: rgba(255, 120, 0, 0.12);  color: #f07000; }
 .skill-icon-green { background: rgba(37, 211, 102, 0.12); color: #1da855; }
-.skill-icon-red   { background: rgba(120, 0, 220, 0.10);  color: #7800dc; }
+.skill-icon-red   { background: rgba(255, 45, 32, 0.12);  color: #FF2D20; }
 
 .skill-card h5 {
     font-weight: 700;

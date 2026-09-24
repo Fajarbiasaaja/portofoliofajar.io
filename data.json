@@ -66,7 +66,7 @@
     {
       "id": "s7",
       "name": "Laravel",
-      "icon": "devicon-laravel-plain colored",
+      "icon": "devicon-laravel-plain",
       "colorClass": "skill-icon-red",
       "description": "Framework PHP untuk pengembangan aplikasi web modern",
       "percentage": 65
