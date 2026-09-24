@@ -88,7 +88,7 @@
       "title": "Sertifikat POLINES ROBOTIC CONTEST 2026",
       "tag": "Sertifikasi",
       "image": "images/sertif3.jpeg",
-      "description": "Sertifikat peserta Polines Robotic Contest 2026 ",
+      "description": "Sertifikat peserta Polines Robotic Contest 2026 oleh UKM Pengembangan Pengetahuan, 7-8 Februari 2026.",
       "placeholderText": "PRC+2026",
       "placeholderColor": "cc0000"
     },
@@ -97,7 +97,7 @@
       "title": "JASAKU - Aplikasi Jasa Service AC",
       "tag": "Laravel Project",
       "image": "images/jasaku.jpeg",
-      "description": "Aplikasi web berbasis Laravel untuk platform jasa service AC profesional.",
+      "description": "Aplikasi web berbasis Laravel untuk platform jasa service AC. Fitur: booking servis, manajemen teknisi, dan pembayaran online.",
       "placeholderText": "JASAKU+Laravel",
       "placeholderColor": "0099ff"
     }
