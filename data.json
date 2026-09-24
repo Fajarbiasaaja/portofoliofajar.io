@@ -82,6 +82,24 @@
       "description": "Sertifikat peserta lomba robotic tingkat nasional di event Mechatura 2025",
       "placeholderText": "Mechatura+2025",
       "placeholderColor": "25d366"
+    },
+    {
+      "id": "p3",
+      "title": "Sertifikat POLINES ROBOTIC CONTEST 2026",
+      "tag": "Sertifikasi",
+      "image": "sertif3.jpeg",
+      "description": "Sertifikat peserta Polines Robotic Contest 2026 dengan tema 'Synergy of Robotics and Humanity for Rescue Innovation and Medical Relief in Industry 4.0', 7-8 Februari 2026.",
+      "placeholderText": "PRC+2026",
+      "placeholderColor": "cc0000"
+    },
+    {
+      "id": "p4",
+      "title": "JASAKU - Aplikasi Layanan Jasa",
+      "tag": "Laravel Project",
+      "image": "jasaku.jpeg",
+      "description": "Aplikasi web berbasis Laravel untuk platform layanan jasa profesional (AC, dll). Fitur: booking, manajemen teknisi, dan sistem pembayaran.",
+      "placeholderText": "JASAKU+Laravel",
+      "placeholderColor": "0099ff"
     }
   ],
   "contact": {
