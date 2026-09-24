@@ -94,10 +94,10 @@
     },
     {
       "id": "p4",
-      "title": "JASAKU - Aplikasi Layanan Jasa",
+      "title": "JASAKU - Aplikasi Jasa Service AC",
       "tag": "Laravel Project",
       "image": "jasaku.jpeg",
-      "description": "Aplikasi web berbasis Laravel untuk platform layanan jasa profesional (AC, dll). Fitur: booking, manajemen teknisi, dan sistem pembayaran.",
+      "description": "Aplikasi web berbasis Laravel untuk platform jasa service AC profesional. Fitur: pemesanan servis online, manajemen teknisi, jadwal kunjungan, dan sistem pembayaran transparan.",
       "placeholderText": "JASAKU+Laravel",
       "placeholderColor": "0099ff"
     }
