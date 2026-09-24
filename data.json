@@ -11,8 +11,8 @@
     "education": "SMK Muhammadiyah Majenang → Politeknik Negeri Indramayu",
     "location": "majenang KAB.cilacap, Jawa Tengah",
     "quote": "Syukuri apa yang ada, karena di luar sana masih banyak yang lebih kekurangan dari kita.",
-    "heroImage": "bb.jpeg",
-    "aboutImage": "my.jpeg"
+    "heroImage": "images/bb.jpeg",
+    "aboutImage": "images/my.jpeg"
   },
   "skills": [
     {
@@ -69,7 +69,7 @@
       "id": "p1",
       "title": "Sertifikat POLINES ROBOTIC CONTEST 2025",
       "tag": "Sertifikasi",
-      "image": "sertif1.jpeg",
+      "image": "images/sertif1.jpeg",
       "description": "Pencapaian sertifikasi peserta lomba robotic tingkat nasional di event PRC 2025.",
       "placeholderText": "PRC+2025",
       "placeholderColor": "0099ff"
@@ -78,7 +78,7 @@
       "id": "p2",
       "title": "Sertifikat MECHATURA 2025",
       "tag": "Kompetisi",
-      "image": "sertif2.jpeg",
+      "image": "images/sertif2.jpeg",
       "description": "Sertifikat peserta lomba robotic tingkat nasional di event Mechatura 2025",
       "placeholderText": "Mechatura+2025",
       "placeholderColor": "25d366"
@@ -87,7 +87,7 @@
       "id": "p3",
       "title": "Sertifikat POLINES ROBOTIC CONTEST 2026",
       "tag": "Sertifikasi",
-      "image": "sertif3.jpeg",
+      "image": "images/sertif3.jpeg",
       "description": "Sertifikat peserta Polines Robotic Contest 2026 dengan tema 'Synergy of Robotics and Humanity for Rescue Innovation and Medical Relief in Industry 4.0', 7-8 Februari 2026.",
       "placeholderText": "PRC+2026",
       "placeholderColor": "cc0000"
@@ -96,7 +96,7 @@
       "id": "p4",
       "title": "JASAKU - Aplikasi Jasa Service AC",
       "tag": "Laravel Project",
-      "image": "jasaku.jpeg",
+      "image": "images/jasaku.jpeg",
       "description": "Aplikasi web berbasis Laravel untuk platform jasa service AC profesional. Fitur: pemesanan servis online, manajemen teknisi, jadwal kunjungan, dan sistem pembayaran transparan.",
       "placeholderText": "JASAKU+Laravel",
       "placeholderColor": "0099ff"
