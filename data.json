@@ -46,6 +46,22 @@
       "colorClass": "skill-icon-green",
       "description": "Version control dan kolaborasi proyek",
       "percentage": 65
+    },
+    {
+      "id": "s5",
+      "name": "C++",
+      "icon": "fas fa-code",
+      "colorClass": "skill-icon-blue",
+      "description": "Pemrograman sistem dan aplikasi berbasis C++",
+      "percentage": 60
+    },
+    {
+      "id": "s6",
+      "name": "Arduino IDE",
+      "icon": "fas fa-microchip",
+      "colorClass": "skill-icon-orange",
+      "description": "Pemrograman mikrokontroler untuk proyek robotik",
+      "percentage": 70
     }
   ],
   "projects": [
