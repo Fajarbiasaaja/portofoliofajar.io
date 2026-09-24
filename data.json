@@ -62,6 +62,14 @@
       "colorClass": "skill-icon-orange",
       "description": "Pemrograman mikrokontroler untuk proyek robotik",
       "percentage": 70
+    },
+    {
+      "id": "s7",
+      "name": "Laravel",
+      "icon": "devicon-laravel-plain colored",
+      "colorClass": "skill-icon-red",
+      "description": "Framework PHP untuk pengembangan aplikasi web modern",
+      "percentage": 65
     }
   ],
   "projects": [
